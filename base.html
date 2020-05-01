@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+
+    <script>
+
+        //function for player selection
+        const playerSelection = (userInput) => {
+            userInput = userInput.toLowerCase()
+            if (
+                userInput === 'rock' ||
+                userInput === 'paper' ||
+                userInput === 'scissor') { return userInput } else {
+                console.log("Error, please type rock, paper or scissors");
+            }
+        }
+        //function for random computer input
+        const computerPlay = () => {
+            let random = Math.floor(Math.random() * 3)
+            switch (random) {
+                case 0:
+                    return 'rock';
+                case 1:
+                    return 'scissors';
+                case 2:
+                    return 'paper';
+            }
+        }
+        //function to decide winners between playerSelection and computerChoice
+        const playRound = (playerSelection, computerPlay) => {
+            if (computerPlay === playerSelection) { return 'This game is a tie' }
+            if (computerPlay === 'rock') { if (playerSelection === 'paper') { return 'You win!' } else { return 'Computer wins!' } }
+            if (computerPlay === 'paper') { if (playerSelection === 'scissors') { return 'You win!' } else { return 'Computer wins!' } }
+            if (computerPlay === 'scissors') { if (playerSelection === 'rock') { return 'You win!' } else { return ' Computer wins!' } }
+        };
+
+        //function to play the game
+        const playGame = () => {
+            const userChoice = playerSelection(prompt('Chose between paper, scissors, rock'));
+            const computerSelection = computerPlay();
+            console.log('You threw ' + userChoice)
+            console.log('The computer threw ' + computerSelection)
+            console.log(playRound(userChoice, computerSelection))
+
+        }
+        playGame()
+
+    </script>
+
+</body>
+
+</html>
