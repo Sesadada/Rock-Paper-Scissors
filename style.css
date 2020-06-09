@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #f8c6f0;
+  background-color: #f6bdd1;
   align-items: center;
   justify-content: center;
 }
@@ -41,5 +41,5 @@ body {
   font-weight: 100;
   display: flex;
   justify-content: center;
-  margin-top: 30vh;
+  margin-top: 25vh;
 }
