@@ -1,9 +1,3 @@
-/* 
-1) Create three buttons, one for each selection. 
-2)Add an event listener to the buttons that calls your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
-3) Add a div for displaying results and change all of your console.logs into DOM methods.
-4) Display the running score, and announce a winner of the game once one player reaches 5 points.
-*/
 const container = document.querySelector("#container");
 const points = document.createElement("p");
 const para = document.createElement("p");
@@ -11,6 +5,8 @@ const div = document.createElement("div");
 const winner = document.createElement("div");
 const getWinner = document.getElementById("winner");
 let image = document.createElement("img");
+let imageHappy = document.createElement("img");
+console.log(imageHappy);
 container.append(div);
 div.setAttribute("id", "response");
 
@@ -43,7 +39,7 @@ const computerPlay = () => {
 const display = () => {
   div.style.backgroundColor = "white";
   div.style.lineHeight = "200%";
-  div.style.marginTop = "15px";
+  div.style.padding = "20px";
   div.style.borderRadius = "5px";
   div.style.maxWidth = "600px";
   div.style.margin = "auto";
@@ -85,17 +81,16 @@ const playRound = (playerSelection, computerSelection) => {
 
 function checkWinner() {
   winner.setAttribute("id", "winner");
-  //winner.style.visibility = "visible";
-  winner.style.fontSize = "20px";
-  winner.style.lineHeight = "200%";
-  winner.style.marginTop = "15px";
-  winner.style.padding = "20px";
+  winner.style.fontFamily = "'Playfair Display', serif";
+  winner.style.fontSize = "35px";
+  image.style.padding = "25px";
+  imageHappy.style.padding = "25px";
 
   if (playerScore >= 5 || computerScore >= 5) {
     if (playerScore == 5) {
       container.append(winner);
       winner.textContent = "You win this game!";
-      winner.appendChild(image);
+      winner.appendChild(imageHappy);
       final();
       console.log(playerScore, computerScore);
     } else if (computerScore == 5) {
@@ -125,6 +120,13 @@ image.setAttribute(
 image.setAttribute("width", "250px");
 image.setAttribute("height", "315px");
 image.setAttribute("style", "display: flex; margin: auto");
+
+imageHappy.setAttribute(
+  "src",
+  "https://www.shitpostbot.com/img/templates/happy-cat-looking-at-computer-59dc2c0767c90.jpeg"
+);
+imageHappy.setAttribute("width", "600px");
+imageHappy.setAttribute("style", "display: flex; margin: auto");
 
 /*
 
